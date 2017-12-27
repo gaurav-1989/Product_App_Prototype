@@ -2,6 +2,11 @@
     "name": "Product_App_Prototype",
     "version": "1.0.0",
     "private": true,
-    "dependencies": {
+    "dependencies": {},
+    "devDependencies": {
+        "bower": "^1.8.2",
+        "gulp": "^3.9.1",
+        "gulp-inject": "^4.3.0",
+        "wrench": "^1.5.9"
     }
 }
