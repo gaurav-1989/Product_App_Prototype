@@ -1,5 +1,5 @@
 ﻿(function () {
     "use strict";
-	
-	angular.module("pap", ["ngRoute", "ngResource","employee.detail"]);
+
+    angular.module("pap", ["ngRoute", "ngResource","employee.list"]);
 })();
