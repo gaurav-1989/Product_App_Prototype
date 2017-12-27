@@ -1,5 +1,5 @@
 {
-  "name": "Product_App_Prototype",
+  "name": "product_app_prototype",
   "dependencies": {
     "angular": "v1.6.7-build.5502+sha.f2f5ac7",
     "mobile-angular-ui": "v1.3.4",
