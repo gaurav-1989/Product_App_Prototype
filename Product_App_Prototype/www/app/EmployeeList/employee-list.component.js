@@ -28,6 +28,7 @@
                         this.selected = self.employeelist[index];
                         console.log(this.selected);
                         $routeParams.Id = this.selected;
+                        
                     };
                 }]
         })

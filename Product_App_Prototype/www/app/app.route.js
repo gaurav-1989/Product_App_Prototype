@@ -4,16 +4,16 @@
         module('pap').
         config(['$locationProvider', '$routeProvider',
             function config($locationProvider, $routeProvider) {
-                $locationProvider.hashPrefix('!');
+                 $locationProvider.hashPrefix('!');
                 debugger;
                 $routeProvider.
-                    when('/', {
+                    when('/employees', {
                         template: '<employee-list></employee-list>'
                     }).
-                    //when('/phones/:phoneId', {
-                    //    template: '<phone-detail></phone-detail>'
-                    //}).
-                    otherwise('/index');
+                    when('/employee/:Id', {
+                       template: '<employee-details></employee-details>'
+                    }).
+                     otherwise('/employees');
             }
         ]);
 })();
