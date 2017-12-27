@@ -1,21 +1,25 @@
 {
-  "prepare_queue": {
-    "installed": [],
-    "uninstalled": []
-  },
-  "config_munge": {
-    "files": {}
-  },
-  "installed_plugins": {
-    "cordova-plugin-network-information": {
-      "PACKAGE_NAME": "io.cordova.hellocordova"
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
     },
-    "cordova-plugin-splashscreen": {
-      "PACKAGE_NAME": "io.cordova.hellocordova"
+    "config_munge": {
+        "files": {}
     },
-    "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "io.cordova.hellocordova"
+    "installed_plugins": {
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "io.cordova.hellocordova"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "io.cordova.hellocordova"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "io.cordova.hellocordova"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-sqlite-storage": {
+            "PACKAGE_NAME": "io.cordova.hellocordova"
+        }
     }
-  },
-  "dependent_plugins": {}
 }

@@ -21,7 +21,13 @@
                 <!-- <td><a class="btn btn-primary" ui-sref="viewMovie({id:employeeService.EmployeeID})">View</a></td> -->
             </tr>
     </table>
+    <a href=""
+          ui-turn-on="addEmployee"
+          class="btn btn-default">AddEmployee</a>
 </div>
+<div ui-content-for="modals">
+        <div ng-include="'app/add-employee/add-employee.template.html'"></div>
+      </div>
 <!--<div id="grid1" ui-grid="{ data: employees}" class="grid"></div>-->
 <!--<script src="../employee-list/employee-list.component.js"></script>
 <a href="../employee-list/employee-list.template.html">../employee-list/employee-list.template.html</a>-->

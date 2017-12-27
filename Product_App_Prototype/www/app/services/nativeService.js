@@ -5,6 +5,7 @@
 
     function NativeService($rootScope, $window) {
         var _this = this;
+        var db = null;
 
         var pauseCallback = function () {
             // TODO: This application has been suspended. Save application state here.
@@ -14,10 +15,24 @@
             // TODO: This application has been reactivated. Restore application state here.
         };
 
+        var onlineConnectionStateCallback = function () {
+            // ToDo: handle online stuff, check for any data stored locally then push to server
+            console.log("internet connect is back");
+        }
+
+        var offlineConnectionStateCallback = function () {
+            // ToDo: handle offline 
+             console.log("device went offline");
+        }
+
         var deviceReadyCallback = function () {
             // Handle the Cordova pause and resume events
             document.addEventListener('pause', pauseCallback.bind(this), false);
             document.addEventListener('resume', resumeCallback.bind(this), false);
+
+            //To Handle device online and offline status
+            document.addEventListener("online", onlineConnectionStateCallback.bind(this), false);
+            document.addEventListener("offline", offlineConnectionStateCallback.bind(this), false);
 
             // TODO: Cordova has been loaded. Perform any initialization that requires Cordova here.
             //var parentElement = document.getElementById('deviceready');
@@ -33,6 +48,7 @@
             setTimeout(function () {
                 navigator.splashscreen.hide();
             }, 5000);
+
         };
 
         _this.initListners = function () {

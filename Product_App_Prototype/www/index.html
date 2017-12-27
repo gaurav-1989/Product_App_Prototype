@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
@@ -7,31 +7,36 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <title>Product App Prototype</title>
     <!-- inject:css -->
-    <link rel="stylesheet" href="/www/assets/css/mobile-angular-ui/mobile-angular-ui-base.min.css">
-    <link rel="stylesheet" href="/www/assets/css/mobile-angular-ui/mobile-angular-ui-desktop.min.css">
-    <link rel="stylesheet" href="/www/assets/css/mobile-angular-ui/mobile-angular-ui-hover.min.css">
-    <link rel="stylesheet" href="/www/assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/mobile-angular-ui/mobile-angular-ui-base.min.css">
+    <link rel="stylesheet" href="assets/css/mobile-angular-ui/mobile-angular-ui-desktop.min.css">
+    <link rel="stylesheet" href="assets/css/mobile-angular-ui/mobile-angular-ui-hover.min.css">
+    <link rel="stylesheet" href="assets/css/index.css">
     <!-- endinject -->
     <script type="text/javascript" src="scripts/angular/angular.min.js"></script>
     <script type="text/javascript" src="scripts/angular-route/angular-route.js"></script>
     <script type="text/javascript" src="scripts/angular/angular-resource.min.js"></script>
+    <script src="scripts/mobile-angular-ui/dist/js/mobile-angular-ui.min.js"></script>
 </head>
 <body ng-app="pap">
     <div ng-view></div>
+
     <script type="text/javascript" src="cordova.js"></script>
     <!-- inject:js -->
-    <script src="/www/app/employee-details/employee-details.module.js"></script>
-    <script src="/www/app/employee-list/employee-list.module.js"></script>
-    <script src="/www/app/app.module.js"></script>
-    <script src="/www/app/app.config.js"></script>
-    <script src="/www/app/app.constants.js"></script>
-    <script src="/www/app/app.route.js"></script>
-    <script src="/www/app/app.run.js"></script>
-    <script src="/www/app/platformOverrides.js"></script>
-    <script src="/www/app/employee-details/employee-details.component.js"></script>
-    <script src="/www/app/employee-list/employee-list.component.js"></script>
-    <script src="/www/app/services/employeeService.js"></script>
-    <script src="/www/app/services/nativeService.js"></script>
+    <script src="app/add-employee/add-employee.module.js"></script>
+    <script src="app/employee-details/employee-details.module.js"></script>
+    <script src="app/employee-list/employee-list.module.js"></script>
+    <script src="app/app.module.js"></script>
+    <script src="app/app.config.js"></script>
+    <script src="app/app.constants.js"></script>
+    <script src="app/app.route.js"></script>
+    <script src="app/app.run.js"></script>
+    <script src="app/platformOverrides.js"></script>
+    <script src="app/add-employee/add-employee.component.js"></script>
+    <script src="app/employee-details/employee-details.component.js"></script>
+    <script src="app/employee-list/employee-list.component.js"></script>
+    <script src="app/services/employeeService.js"></script>
+    <script src="app/services/nativeService.js"></script>
     <!-- endinject -->
+    <div ui-yield-to="modals"></div>
 </body>
 </html>
