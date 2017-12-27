@@ -19,7 +19,7 @@
     <script type="text/javascript" src="scripts/angular-route/angular-route.js"></script>
     <script type="text/javascript" src="scripts/angular/angular-resource.min.js"></script>
 </head>
-<body>
+<body ng-app="pap">
     <!--<div class="app_1" ng-app="pap">
         <h1>Apache Cordova</h1>
         <div id="deviceready" class="blink">
@@ -27,9 +27,11 @@
             <p class="event received">Device is Ready</p>
         </div>
     </div>-->
-    <div ng-app="pap">
+    <!-- <div ng-app="pap">
         <employee-list></employee-list>
-    </div>
+        <employee-details></employee-details>
+    </div> -->
+    <div ng-view></div>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="app/app.module.js"></script>
     <script type="text/javascript" src="app/services/nativeService.js"></script>
@@ -39,5 +41,6 @@
     <script type="text/javascript" src="app/app.run.js"></script>
     <script type="text/javascript" src="app/platformOverrides.js"></script>
     <script type="text/javascript" src="app/EmployeeList/employee-list.component.js"></script>
+    <script type="text/javascript" src="app/EmployeeDetails/employee-details.component.js"></script>
 </body>
 </html>

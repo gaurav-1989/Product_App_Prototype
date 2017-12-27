@@ -6,7 +6,7 @@
 
     function runBlock(nativeService,employeeService) {
         nativeService.initListners();
-        console.log(employeeService.query());   
+      
     }
     
 })();
