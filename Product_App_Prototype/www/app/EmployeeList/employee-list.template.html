@@ -1,0 +1,25 @@
+﻿<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <td class="col-xs-1"> Employee ID </td>
+                <td class="col-xs-1"> FirstName </td>
+                <td class="col-xs-1"> LastName </td>
+                <td class="col-xs-1"> DOB </td>
+                <td class="col-xs-1"> EmailAddress </td>
+                <td class="col-xs-1"> Action </td>
+            </tr>
+        </thead>
+            <tr ng-repeat="employee in $ctrl.employees" ng-click="$ctrl.setSelected($index)">
+                <td class="col-xs-1"> {{employee.EmployeeID}} </td>
+                <td class="col-xs-1"> {{employee.firstname}} </td>
+                <td class="col-xs-1"> {{employee.lastname}} </td>
+                <td class="col-xs-1"> {{employee.DOB}} </td>
+                <td class="col-xs-1"> {{employee.EmailAddress}} </td>
+                <td class="col-xs-1"> <a href="Delete">Delete</a> </td>
+            </tr>
+    </table>
+</div>
+<!--<div id="grid1" ui-grid="{ data: employees}" class="grid"></div>-->
+<!--<script src="../employee-list/employee-list.component.js"></script>
+<a href="../employee-list/employee-list.template.html">../employee-list/employee-list.template.html</a>-->
