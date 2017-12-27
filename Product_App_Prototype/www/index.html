@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
@@ -15,15 +14,21 @@
     <!-- endinject -->
     <script type="text/javascript" src="scripts/angular/angular.min.js"></script>
     <script type="text/javascript" src="scripts/angular-route/angular-route.js"></script>
+    <script type="text/javascript" src="scripts/angular/angular-resource.min.js"></script>
 </head>
-<body>
-    <div class="app_1" ng-app="pap">
+<body ng-app="pap">
+    <!--<div class="app_1" ng-app="pap">
         <h1>Apache Cordova</h1>
         <div id="deviceready" class="blink">
             <p class="event listening">Connecting to Device</p>
             <p class="event received">Device is Ready</p>
         </div>
-    </div>
+    </div>-->
+    <!-- <div ng-app="pap">
+        <employee-list></employee-list>
+        <employee-details></employee-details>
+    </div> -->
+    <div ng-view></div>
     <script type="text/javascript" src="cordova.js"></script>
     <!-- inject:js -->
     <script src="/www/app/app.module.js"></script>
