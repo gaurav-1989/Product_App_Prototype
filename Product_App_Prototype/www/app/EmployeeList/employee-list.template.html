@@ -10,12 +10,12 @@
                 <td class="col-xs-1"> Action </td>
             </tr>
         </thead>
-            <tr ng-repeat="employee in $ctrl.employees" ng-click="$ctrl.setSelected($index)">
-                <td class="col-xs-1"> {{employee.EmployeeID}} </td>
-                <td class="col-xs-1"> {{employee.firstname}} </td>
-                <td class="col-xs-1"> {{employee.lastname}} </td>
+            <tr ng-repeat="employee in $ctrl.employeelist" ng-click="$ctrl.setSelected($index)">
+                <td class="col-xs-1"> {{employee.Id}} </td>
+                <td class="col-xs-1"> {{employee.FirstName}} </td>
+                <td class="col-xs-1"> {{employee.LastName}} </td>
                 <td class="col-xs-1"> {{employee.DOB}} </td>
-                <td class="col-xs-1"> {{employee.EmailAddress}} </td>
+                <td class="col-xs-1"> {{employee.Email}} </td>
                 <td class="col-xs-1"> <a href="Delete">Delete</a> </td>
             </tr>
     </table>
