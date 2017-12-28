@@ -1,4 +1,4 @@
-﻿/// <binding />
+/// <binding BeforeBuild='default' />
 (function () {
     "use strict";
 

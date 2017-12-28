@@ -2,13 +2,13 @@
     "use strict";
 
     angular.
-        module('pap').
+        module('employee.details').
         component('employeeDetails', {
             templateUrl: "app/employee-details/employee-details.template.html",
-            controller: ['$routeParams', 'employeeService', '$filter',
-                function employeeDetailsController($routeParams, employeeService, $filter) {
+            controller: ['$routeParams', 'dataService', '$filter',
+                function employeeDetailsController($routeParams, dataService, $filter) {
                     var self = this;
-                    self.employee = employeeService.get({ id: $routeParams.Id }, function () {
+                    self.employee = dataService.get({ id: $routeParams.Id }, function () {
                     });
                 }
             ]

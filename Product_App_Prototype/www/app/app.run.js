@@ -1,9 +1,9 @@
 ﻿(function () {
     "use strict";
 
-    angular.module("pap").run(["nativeService", "employeeService", runBlock]);
+    angular.module("pap").run(["nativeService", runBlock]);
 
-    function runBlock($rootScope, nativeService, employeeService) {
+    function runBlock(nativeService) {
         nativeService.initListners();
     }
 })();

@@ -1,17 +1,23 @@
-﻿(function () {
+﻿﻿(function () {
     "use strict";
 
     var gulp = require('gulp');
+    var config = require('./config');
+    var concat = require('gulp-concat');
+    var rename = require('gulp-rename');
+    var uglify = require('gulp-uglify');
     var inject = require('gulp-inject');
 
     gulp.task('script-loader', ['style-loader'], function () {
-        var target = gulp.src('./www/index.html');
-        var sources = gulp.src([
-            './www/app/employee-details/employee-details.module.js',
-            './www/app/employee-list/employee-list.module.js',
-            './www/app/app.module.js',
-            './www/app/**/*.js'], { read: false });
+        var target = gulp.src(config.paths.index);
+        var sources = gulp.src(config.paths.scripts)
+            .pipe(concat(config.paths.script))
+            .pipe(gulp.dest(config.paths.outDir))
+            .pipe(rename(config.paths.scriptMin))
+            .pipe(uglify())
+            .pipe(gulp.dest(config.paths.outDir));
+
         return target.pipe(inject(sources))
-            .pipe(gulp.dest('./www'));
+            .pipe(gulp.dest(config.paths.rootDir));
     });
 })();
