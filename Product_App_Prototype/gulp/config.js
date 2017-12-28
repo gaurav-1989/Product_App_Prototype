@@ -22,6 +22,11 @@
         styleMin: 'style.min.css',
         script: 'script.js',
         scriptMin: 'script.min.js',
-        outDir: rootDir + '/ref'
+        outDir: rootDir + '/ref',
+        ignore: 'www'
+    };
+
+    exports.setting = {
+        debug: true
     };
 })();
