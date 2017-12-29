@@ -18,7 +18,9 @@
     <script type="text/javascript" src="scripts/angular/angular-resource.min.js"></script>
 </head>
 <body ng-app="pap">
+    <div id="header" ng-include="'app/headerfooter/header.html'"></div>
     <div ng-view></div>
+    <div id="footer" ng-include="'app/headerfooter/footer.html'"></div>
     <!-- inject:js -->
     <script src="app/employee-details/employee-details.module.js"></script>
     <script src="app/employee-list/employee-list.module.js"></script>
