@@ -1,25 +1,42 @@
 (function () {
     "user strict";
-    
+
     angular.module("pap")
-    .service("offlineService", ["$rootScope", "$filter", "employeeProvider", "dataService", "$q", OfflineService]);
-    
-    function OfflineService($rootScope,$filter,employeeProvider,dataService, $q) {
+        .service("offlineService", ["$rootScope", "$filter", "employeeProvider", "dataService", "$q", OfflineService]);
+
+    function OfflineService($rootScope, $filter, employeeProvider, dataService, $q) {
         var _this = this;
 
-        _this.Get = function (filter) {            
-            var defer = $q.deferred();
+        $rootScope.$on('device_ready_event', function () {
+            synData();
+        });
 
-             employeeProvider.Get(filter).then(
-                 function(employees){
-                        deferred.resolve(employees);
-             }, 
-             function(error){
-                deferred.reject(error);
-            }
+        _this.GetEmployees = function (filter) {
+            var deferred = $q.defer();
+
+            employeeProvider.get(filter).then(
+                function (employees) {
+                    deferred.resolve(employees);
+                },
+                function (error) {
+                    deferred.reject(error);
+                }
             );
 
-             return defer.promise;
+            return deferred.promise;
+        };
+
+        var synData = function () {
+            dataService.query(function (employees) {
+                employeeProvider.insert(employees).then(
+                    function () {
+                        //Successfully populated sqlite DB
+                    },
+                    function (error) {
+                        //Sqlite DB setup failed
+                    }
+                );
+            });
         };
 
         // $rootScope.$on('app_resume_event', function() {   
@@ -40,7 +57,7 @@
         //                LastName: getSyncedData[i].LastName,
         //                DOB :getSyncedData[i].DOB,
         //                Email:getSyncedData[i].Email
-                        
+
         //             });
         //             for(var i=0;i<employeeDetails.length;i++)
         //             {
@@ -53,10 +70,9 @@
         //     var lastRecID=this;
         //             self.employeelist = dataService.query();
         //             lastRecID =$filter('orderBy')(self.employeelist,'ID')[self.employeelist.length-1].ID ;
-                    
+
         //             //sending the last ID to API to get all the records after that
 
-           
         // };
     }
-    })();
+})();
