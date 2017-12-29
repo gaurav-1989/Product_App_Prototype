@@ -1,27 +1,58 @@
-﻿<div class="table-responsive">
-    <table class="table">
-        <thead>               
-            <tr>
-                <td class="col-xs-1"> Employee ID </td>
-                <td class="col-xs-1"> FirstName </td>
-                <td class="col-xs-1"> LastName </td>
-                <td class="col-xs-1"> DOB </td>
-                <td class="col-xs-1"> EmailAddress </td>
-                <td class="col-xs-1"> Action </td>
-            </tr>
-        </thead>
-            <tr ng-repeat="employee in $ctrl.employeelist">
-                <td class="col-xs-1"> {{employee.Id}} </td>
-                <td class="col-xs-1"> {{employee.FirstName}} </td>
-                <td class="col-xs-1"> {{employee.LastName}} </td>
-                <td class="col-xs-1"> {{employee.DOB}} </td>
-                <td class="col-xs-1"> {{employee.Email}} </td>
-                <td class="col-xs-1"> <a ng-href="#!/employee/{{employee.Id}}">View</a> </td>
-                <td class="col-xs-1"> <a ng-href="#">Delete</a> </td>
-                <!-- <td><a class="btn btn-primary" ui-sref="viewMovie({id:dataService.EmployeeID})">View</a></td> -->
-            </tr>
-    </table>
+﻿<div class="scrollable" ui-shared-state="searchBar">
+    <!--<input type="text" id="searchid" style="width:95%; margin-left:10px" placeholder="Search.." class="text-muted" />-->
+    <!--<input ng-if="Ui.active('searchBar')"
+           type="search"
+           class="form-control scrollable-header"
+           placeholder="Search.." />-->
+
+    <div class="scrollable-content" ui-scroll-bottom="bottomReached()">
+        <div style="width:100%;">
+            <input type="text" id="searchid" style="margin-left:10px; z-index: 1;
+    margin-top: 50px; width: 80%;" placeholder="Search.." class="text-muted" />
+            <button name="btn_add" style="width:10%">Add</button>
+        </div>
+        <!--<div style="width:25%;">
+            <button name="btn_add">Add</button>
+        </div>-->
+        <div class="list-group">
+            <ul>
+                <li ng-repeat="employee in $ctrl.employeelist" href="" class="list-group-item">
+                    <ul style="list-style-type: none; padding-left:0;">
+                        <li class="listbottom">
+                            <span style="display:inline">{{employee.FirstName+" "+employee.LastName}}</span>
+                        </li>
+                        <li>
+                            <!--<span style="display:inline">Employee ID </span>-->
+                            <p style="display:inline">{{employee.Id}}</p>
+                        </li>
+                        <li>
+                            <!--<span style="display:inline">First Name </span>-->
+                            <p style="display:inline">{{employee.FirstName}}</p>
+                        </li>
+                        <li>
+                            <!--<span style="display:inline">Last Name </span>-->
+                            <p style="display:inline">{{employee.LastName}}</p>
+                        </li>
+                        <li>
+                            <!--<span style="display:inline">DOB </span>-->
+                            <p style="display:inline">{{employee.DOB}}</p>
+                        </li>
+                        <li>
+                            <!--<span style="display:inline">Email Address </span>-->
+                            <p style="display:inline">{{employee.Email}}</p>
+                        </li>
+                    </ul>
+                    <div class="listbottom">
+                        <a class="pull-right" ng-href="#">Delete</a>
+                        <a class="pull-right" href="#!/employee/{{employee.Id}}" style="margin-right:20px">View</a>
+
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </div>
 </div>
-<!--<div id="grid1" ui-grid="{ data: employees}" class="grid"></div>-->
-<!--<script src="../employee-list/employee-list.component.js"></script>
-<a href="../employee-list/employee-list.template.html">../employee-list/employee-list.template.html</a>-->
+
+
+
