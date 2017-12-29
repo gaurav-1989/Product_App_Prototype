@@ -42,11 +42,11 @@
                             <p style="display:inline">{{employee.Email}}</p>
                         </li>
                     </ul>
-                    <div class="listbottom">
-                        <a class="pull-right" ng-href="#">Delete</a>
-                        <a class="pull-right" href="#!/employee/{{employee.Id}}" style="margin-right:20px">View</a>
+					<div class="listbottom">
+					 <a class="pull-right" ng-click="$ctrl.setDelete($index)">Delete</a> 
+						<a class="pull-right" href="#!/employee/{{employee.Id}}" style="margin-right:20px">View</a>
 
-                    </div>
+					</div>
                 </li>
             </ul>
 
