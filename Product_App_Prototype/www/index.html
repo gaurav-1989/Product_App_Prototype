@@ -16,12 +16,14 @@
     <script type="text/javascript" src="scripts/angular/angular.min.js"></script>
     <script type="text/javascript" src="scripts/angular-route/angular-route.js"></script>
     <script type="text/javascript" src="scripts/angular/angular-resource.min.js"></script>
+    <script src="scripts/mobile-angular-ui/dist/js/mobile-angular-ui.min.js"></script>
 </head>
 <body ng-app="pap">
     <div id="header" ng-include="'app/headerfooter/header.html'"></div>
     <div ng-view></div>
     <div id="footer" ng-include="'app/headerfooter/footer.html'"></div>
     <!-- inject:js -->
+    <script src="app/add-employee/add-employee.module.js"></script>
     <script src="app/employee-details/employee-details.module.js"></script>
     <script src="app/employee-list/employee-list.module.js"></script>
     <script src="app/app.module.js"></script>
@@ -30,6 +32,7 @@
     <script src="app/app.route.js"></script>
     <script src="app/app.run.js"></script>
     <script src="app/platformOverrides.js"></script>
+    <script src="app/add-employee/add-employee.component.js"></script>
     <script src="app/employee-details/employee-details.component.js"></script>
     <script src="app/employee-list/employee-list.component.js"></script>
     <script src="app/providers/employeeProvider.js"></script>
@@ -38,5 +41,6 @@
     <script src="app/services/offlineService.js"></script>
     <script src="app/services/sqliteService.js"></script>
     <!-- endinject -->
+    <div ui-yield-to="modals"></div>
 </body>
 </html>

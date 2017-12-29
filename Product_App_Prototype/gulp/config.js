@@ -13,6 +13,7 @@
             rootDir + '/assets/css/index.css'
         ],
         scripts: [
+            rootDir + '/app/add-employee/add-employee.module.js',
             rootDir + '/app/employee-details/employee-details.module.js',
             rootDir + '/app/employee-list/employee-list.module.js',
             rootDir + '/app/app.module.js',
