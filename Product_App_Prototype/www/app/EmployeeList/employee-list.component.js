@@ -29,7 +29,18 @@
                         console.log(this.selected);
                         $routeParams.Id = this.selected;
                         
-                    };
+					};
+
+
+					this.setDelete = function (index) {
+						debugger
+						this.selected = self.employeelist[index];
+						employeeService.delete({ id: this.selected.Id }, function (data) {
+							location.reload();
+							console.log("Deleted");
+						});
+												
+					};
                 }]
         })
 })();
