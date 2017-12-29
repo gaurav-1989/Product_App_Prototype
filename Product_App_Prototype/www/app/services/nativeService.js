@@ -7,11 +7,11 @@
         var _this = this;
 
         var pauseCallback = function () {
-            // TODO: This application has been suspended. Save application state here.
+            $rootScope.$broadcast("app_pause_event");
         };
 
         var resumeCallback = function () {
-            // TODO: This application has been reactivated. Restore application state here.
+            $rootScope.$broadcast("app_resume_event");
         };
 
         var deviceReadyCallback = function () {
@@ -19,12 +19,17 @@
             document.addEventListener('pause', pauseCallback.bind(this), false);
             document.addEventListener('resume', resumeCallback.bind(this), false);
 
+            //Handle the Cordova online and offlice events
+            document.addEventListener('online', function () {
+                $rootScope.$broadcast("device_online_event");
+            });
+
+            document.addEventListener('offline', function () {
+                $rootScope.$broadcast("device_offline_event");
+            });
+
             // TODO: Cordova has been loaded. Perform any initialization that requires Cordova here.
-            //var parentElement = document.getElementById('deviceready');
-            //var listeningElement = parentElement.querySelector('.listening');
-            //var receivedElement = parentElement.querySelector('.received');
-            //listeningElement.setAttribute('style', 'display:none;');
-            //receivedElement.setAttribute('style', 'display:block;');
+            $rootScope.$broadcast("device_ready_event");
 
             //Show splash screen
             navigator.splashscreen.show();

@@ -1,9 +1,9 @@
 {
   "name": "product_app_prototype",
   "dependencies": {
-    "angular": "v1.6.7-build.5502+sha.f2f5ac7",
     "mobile-angular-ui": "v1.3.4",
-    "angular-route": "v1.6.8"
+    "angular-route": "v1.6.8",
+    "angular": "v1.6.8"
   },
   "resolutions": {
     "angular": "1.6.8"
