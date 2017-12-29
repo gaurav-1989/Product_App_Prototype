@@ -9,11 +9,15 @@
         <div style="width:100%;">
             <input type="text" id="searchid" style="margin-left:10px; z-index: 1;
     margin-top: 50px; width: 80%;" placeholder="Search.." class="text-muted" />
-            <button name="btn_add" style="width:10%">Add</button>
+            <!--<a href=""
+               ui-turn-on="addEmployee"
+               class="btn btn-default" style="width:10%">Add</a>-->
+            <button name="btn_add" ui-turn-on="addEmployee" style="width:10%">Add</button>
         </div>
         <!--<div style="width:25%;">
-            <button name="btn_add">Add</button>
-        </div>-->
+        <button name="btn_add">Add</button>
+    </div>-->
+        
         <div class="list-group">
             <ul>
                 <li ng-repeat="employee in $ctrl.employeelist" href="" class="list-group-item">
@@ -53,6 +57,8 @@
         </div>
     </div>
 </div>
-
+<div ui-content-for="modals">
+    <div ng-include="'app/add-employee/add-employee.template.html'"></div>
+</div>
 
 
