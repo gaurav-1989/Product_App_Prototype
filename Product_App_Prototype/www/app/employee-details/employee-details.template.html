@@ -1,20 +1,13 @@
-<h3 style="margin-top: 50px;">Details for {{$ctrl.employee.FirstName + " " +$ctrl.employee.LastName}}</h3>
-<table class="table employeetable">
-  
-    <tr>
-        <td>Employee First Name</td>
-        <td>{{$ctrl.employee.FirstName}}</td>
-    </tr>
-    <tr>
-        <td>Employee Last Name</td>
-        <td>{{$ctrl.employee.LastName}}</td>
-    </tr>
-    <tr>
-        <td>DOB</td>
-        <td>{{$ctrl.employee.DOB}}</td>
-    </tr>
-    <tr>
-        <td>Email Address</td>
-        <td>{{$ctrl.employee.Email}}</td>
-    </tr>
-</table>
+<div class="section">
+    <p class="text-center">{{$ctrl.employee.FirstName + " " +$ctrl.employee.LastName}} personal details</p>
+    <strong>Id</strong><br />
+    <span>{{$ctrl.employee.Id}}</span><br /><br />
+    <strong>First Name</strong>
+    <p>{{$ctrl.employee.FirstName}}</p>
+    <strong>Last Name</strong>
+    <p>{{$ctrl.employee.LastName}}</p>
+    <strong>Date Of Birth</strong>
+    <p>{{$ctrl.employee.DOB}}</p>
+    <strong>Email</strong>
+    <p>{{$ctrl.employee.Email}}</p>
+</div>

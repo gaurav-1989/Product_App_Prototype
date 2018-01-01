@@ -3,36 +3,39 @@
 
     angular.module("employee.add")
         .component('addEmployee', {
-    templateUrl: 'app/add-employee/add-employee.template.html',
-    controller:function EmployeeFormController($scope) {
-        var myDB = null;
-        var _this = this;
-        _this.employee = {
-            firstName:"d",
-            lastName:"k",
-            dob:new Date(),
-            email:"dd@ff.com"
-        };
-        _this.createEmployee  = function(employee) {
-            _this.addEmployee = angular.copy(employee);
-            console.log("clicked on save", _this.addEmployee);
-            _this.pushData(_this.addEmployee);
-            _this.reset();
-      }
-        _this.pushData = function (employee) {
+            templateUrl: 'app/add-employee/add-employee.template.html',
+            controller: ["$rootScope", "$location", "providerService", function EmployeeFormController($rootScope, $location, providerService) {
+                var _this = this;
+                var componentId = "addEmployee";
 
-            // ToDo: Add data to Sqlite
-      
-      }
-        _this.reset = function() {
-            _this.employee = {
-            firstName:"",
-            lastName:"",
-            dob:"",
-            email:""
-        };
-        
-      }
-    }
-});
+                var employeeSchema = function () {
+                    return {
+                        Id: "",
+                        FirstName: "",
+                        LastName: "",
+                        Email: "",
+                        DOB: ""
+                    };
+                };
+
+                $rootScope.$on("mobile-angular-ui.state.changed." + componentId, function (e, isOpen) {
+                    _this.employee = employeeSchema();
+                });
+
+                _this.add = function () {
+                    providerService.addEmployee(angular.copy(_this.employee)).then(
+                        function (emps) {
+                            $rootScope.$broadcast("new_employee_added", emps[0]);
+                        },
+                        function () {
+                        }
+                    );
+                    $rootScope.Ui.turnOff(componentId);
+                };
+
+                _this.reset = function () {
+                    _this.employee = employeeSchema();
+                };
+            }]
+        });
 })();

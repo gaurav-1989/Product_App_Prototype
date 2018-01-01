@@ -1,64 +1,36 @@
-﻿<div class="scrollable" ui-shared-state="searchBar">
-    <!--<input type="text" id="searchid" style="width:95%; margin-left:10px" placeholder="Search.." class="text-muted" />-->
-    <!--<input ng-if="Ui.active('searchBar')"
-           type="search"
-           class="form-control scrollable-header"
-           placeholder="Search.." />-->
-
-    <div class="scrollable-content" ui-scroll-bottom="bottomReached()">
-        <div style="width:100%;">
-            <input type="text" id="searchid" style="margin-left:10px; z-index: 1;
-    margin-top: 50px; width: 80%;" placeholder="Search.." class="text-muted" />
-            <!--<a href=""
-               ui-turn-on="addEmployee"
-               class="btn btn-default" style="width:10%">Add</a>-->
-            <button name="btn_add" ui-turn-on="addEmployee" style="width:10%">Add</button>
-        </div>
-        <!--<div style="width:25%;">
-        <button name="btn_add">Add</button>
-    </div>-->
-        
-        <div class="list-group">
-            <ul>
-                <li ng-repeat="employee in $ctrl.employeelist" href="" class="list-group-item">
-                    <ul style="list-style-type: none; padding-left:0;">
-                        <li class="listbottom">
-                            <span style="display:inline">{{employee.FirstName+" "+employee.LastName}}</span>
-                        </li>
-                        <li>
-                            <!--<span style="display:inline">Employee ID </span>-->
-                            <p style="display:inline">{{employee.Id}}</p>
-                        </li>
-                        <li>
-                            <!--<span style="display:inline">First Name </span>-->
-                            <p style="display:inline">{{employee.FirstName}}</p>
-                        </li>
-                        <li>
-                            <!--<span style="display:inline">Last Name </span>-->
-                            <p style="display:inline">{{employee.LastName}}</p>
-                        </li>
-                        <li>
-                            <!--<span style="display:inline">DOB </span>-->
-                            <p style="display:inline">{{employee.DOB}}</p>
-                        </li>
-                        <li>
-                            <!--<span style="display:inline">Email Address </span>-->
-                            <p style="display:inline">{{employee.Email}}</p>
-                        </li>
-                    </ul>
-					<div class="listbottom">
-					 <a class="pull-right" ng-click="$ctrl.setDelete($index)">Delete</a> 
-						<a class="pull-right" href="#!/employee/{{employee.Id}}" style="margin-right:20px">View</a>
-
-					</div>
-                </li>
-            </ul>
-
-        </div>
+﻿<div class="scrollable">
+    <div class="input-group">
+        <input type="text" class="form-control no-radius" placeholder="Search for..." id="employee-search" ng-model="$ctrl.query">
+        <span class="input-group-btn">
+            <button ui-turn-on="addEmployee" class="btn btn-default no-radius" type="button"><i class="fa fa-2x fa-plus text-success"></i></button>
+        </span>
+    </div>
+    <div class="scrollable-content">
+        <ul class="list-group">
+            <li ng-repeat="item in $ctrl.employeelist | filter: $ctrl.query" class="list-group-item section">
+                <h3>
+                    <a href="#!/employee/{{item.Id}}">
+                        {{ item.FirstName + " " + item.LastName }}
+                    </a>
+                </h3>
+                <span>{{ item.Email }}</span><br />
+                <small>{{ item.DOB }}</small>
+                <ul class="list-inline pull-right">
+                    <!--<li>
+                        <a href="">
+                            <i class="fa fa-2x fa-info-circle text-info"></i>
+                        </a>
+                    </li>-->
+                    <li>
+                        <a ng-click="$ctrl.delete($index)">
+                            <i class="fa fa-2x fa-trash text-danger"></i>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
     </div>
 </div>
-<div ui-content-for="modals">
-    <div ng-include="'app/add-employee/add-employee.template.html'"></div>
-</div>
+<add-employee></add-employee>
 
 

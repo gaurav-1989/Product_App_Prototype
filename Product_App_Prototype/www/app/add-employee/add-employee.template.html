@@ -1,60 +1,57 @@
 <div ui-content-for="modals">
-<div class="modal modal-overlay" ui-if="addEmployee" ui-shared-state="addEmployee">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button class="close"
-                  ui-turn-off="addEmployee">&times;</button>
-          <h4 class="modal-title">Employee Form</h4>
+    <div class="modal modal-overlay" ui-if="addEmployee" ui-shared-state="addEmployee">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" ui-turn-off="addEmployee">&times;</button>
+                    <h4 class="modal-title">Employee Form</h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form" ng-submit='$ctrl.add()'>
+                        <fieldset>
+                            <div class="form-group">
+                                <label>FirstName</label>
+                                <input type="text"
+                                       ng-model="$ctrl.employee.FirstName"
+                                       class="form-control"
+                                       placeholder="FirstName" required />
+                            </div>
+                            <div class="form-group">
+                                <label>LastName</label>
+                                <input type="text"
+                                       ng-model="$ctrl.employee.LastName"
+                                       class="form-control"
+                                       placeholder="LastName" required />
+                            </div>
+                            <div class="form-group">
+                                <label>DOB</label>
+                                <input type="date"
+                                       ng-model="$ctrl.employee.DOB"
+                                       class="form-control" required />
+                            </div>
+
+                            <div class="form-group has-success has-feedback">
+                                <label>Email</label>
+                                <input type="email"
+                                       ng-model="$ctrl.employee.Email"
+                                       class="form-control"
+                                       placeholder="Enter email" required />
+                            </div>
+                        </fieldset>
+                        <hr>
+                        <div class="pull-right">
+                            <ul class="list-inline">
+                                <li>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </li>
+                                <li>
+                                    <button type="button" class="btn btn-primary" ng-click="$ctrl.reset">Reset</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="modal-body">
-               <form role="form" ng-submit='$ctrl.createEmployee($ctrl.employee)'>
-                    <fieldset>
-                        <div class="form-group">
-                            <label>FirstName</label>
-                            <input type="text"
-                                   ng-model="$ctrl.employee.firstName"
-                                   class="form-control"
-                                   placeholder="FirstName" required>
-                        </div>
-                        <div class="form-group">
-                            <label>LastName</label>
-                            <input type="text"
-                                   ng-model="$ctrl.employee.lastName"
-                                   class="form-control"
-                                   placeholder="LastNaame" required>
-                        </div>
-                        <div class="form-group">
-                            <label>DOB</label>
-                            <input type="date"
-                                   ng-model="$ctrl.employee.dob"
-                                   class="form-control" required>
-                        </div>
-                
-                        <div class="form-group has-success has-feedback">
-                            <label>Email</label>
-                            <input type="email"
-                                   ng-model="$ctrl.employee.email"
-                                   class="form-control"
-                                   placeholder="Enter email" required>
-                        </div>
-                    </fieldset>
-                    <hr>
-                
-                    <button class="btn btn-primary">
-                        Submit
-                    </button>
-                    <button class="btn btn-primary" style="float: right">
-                        Reset
-                    </button>
-                
-                    <div ui-content-for="navbarAction">
-                        <a class="btn" ng-click=" $ctrl.createEmployee($ctrl.employee)">Submit</a>
-                        <a class="btn" ng-click="$ctrl.reset()">Reset</a>
-                    </div>   
-                   </form>
-        </div>
-      </div>
     </div>
-  </div>
 </div>
