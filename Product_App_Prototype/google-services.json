@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1011578480048",
+    "firebase_url": "https://employee-management-1989.firebaseio.com",
+    "project_id": "employee-management-1989",
+    "storage_bucket": "employee-management-1989.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1011578480048:android:26b1bc7640982a8c",
+        "android_client_info": {
+          "package_name": "io.cordova.employeeapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1011578480048-2qf4e1h51sur74odpe7ahk1iqv4poui0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNM9PH9K5h9kjAI0oWyf1NgaN7QrokmQk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

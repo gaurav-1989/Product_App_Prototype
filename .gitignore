@@ -260,3 +260,4 @@ paket-files/
 __pycache__/
 *.pyc
 /Product_App_Prototype/www/ref
+/Product_App_Prototype/plugins
