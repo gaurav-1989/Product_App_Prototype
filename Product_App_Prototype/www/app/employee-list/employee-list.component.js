@@ -4,8 +4,8 @@
     angular.module('employee.list').
         component('employeeList', {
             templateUrl: "app/employee-list/employee-list.template.html",
-            controller: ['$routeParams', 'providerService', '$rootScope', '$window',
-                function employeeDetailsController($routeParams, providerService, $rootScope, $window) {
+            controller: ['$routeParams', 'providerService', '$rootScope', '$window', 'Rollbar',
+                function employeeDetailsController($routeParams, providerService, $rootScope, $window, Rollbar) {
                     var self = this;
                     self.employeelist = [];
 
@@ -14,7 +14,7 @@
                             self.employeelist = employees;
                         },
                         function (error) {
-                            alert(JSON.stringify(error));
+                            Rollbar.error("EmployeeList load failed", error);
                         }
                     );
 
@@ -34,7 +34,7 @@
                                     self.employeelist.splice(index, 1);
                                 },
                                 function (error) {
-                                    alert(JSON.stringify(error));
+                                    Rollbar.error("Employee deletion failed", error);
                                 }
                             );
                         }

@@ -1,20 +1,19 @@
 ﻿(function () {
     "user strict";
 
-    angular.module("pap").service("sqliteService", ["$rootScope", "$q", SqliteService]);
+    angular.module("pap").service("sqliteService", ["$rootScope", "$q", "Rollbar", SqliteService]);
 
-    function SqliteService($rootScope, $q) {
+    function SqliteService($rootScope, $q, Rollbar) {
         var db = null;
         var _this = this;
 
         var init = function () {
             db = window.sqlitePlugin.openDatabase({ name: 'pap.db', location: 'default' },
                 function (db1) {
-                    //db1.executeSql('DROP TABLE IF EXISTS employee');
                     db1.executeSql('CREATE TABLE IF NOT EXISTS employee (Id, FirstName, LastName, Email, DOB, Sync, Deleted)');
                 },
-                function (err) {
-                    //Handle open db error
+                function (error) {
+                    Rollbar.error("sqlite openDatabase failed", error);
                 }
             );
         };

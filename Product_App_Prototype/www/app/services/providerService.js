@@ -2,9 +2,9 @@
     "user strict";
 
     angular.module("pap")
-        .service("providerService", ["$rootScope", "$filter", "employeeProvider", "dataService", "$q", ProviderService]);
+        .service("providerService", ["$rootScope", "$filter", "employeeProvider", "dataService", "$q", "Rollbar", ProviderService]);
 
-    function ProviderService($rootScope, $filter, employeeProvider, dataService, $q) {
+    function ProviderService($rootScope, $filter, employeeProvider, dataService, $q, Rollbar) {
         var _this = this;
         var _deferred = $q.defer();
 
@@ -35,7 +35,7 @@
                     deferred.resolve(emps);
                 },
                 function (error) {
-                    deferred.reject();
+                    deferred.reject(error);
                 }
             );
 
@@ -164,7 +164,7 @@
         };
 
         var syncFailed = function (error) {
-            alert("Sync Failed: " + JSON.stringify(error));
+            Rollbar.error("Sync Failed", error);
             _deferred.resolve([]);
         };
 

@@ -19,6 +19,7 @@
     <script type="text/javascript" src="scripts/angular-resource/angular-resource.min.js"></script>
     <script type="text/javascript" src="scripts/mobile-angular-ui/dist/js/mobile-angular-ui.min.js"></script>
     <script type="text/javascript" src="scripts/angular-uuids/angular-uuid.js"></script>
+    <script src="scripts/ng-rollbar/ng-rollbar.min.js"></script>
 </head>
 <body ng-app="pap">
     <div class="app">
@@ -51,13 +52,13 @@
     <script src="app/app.run.js"></script>
     <script src="app/platformOverrides.js"></script>
     <script src="app/add-employee/add-employee.component.js"></script>
+    <script src="app/employee-list/employee-list.component.js"></script>
     <script src="app/employee-details/employee-details.component.js"></script>
     <script src="app/providers/employeeProvider.js"></script>
     <script src="app/services/dataService.js"></script>
     <script src="app/services/nativeService.js"></script>
     <script src="app/services/providerService.js"></script>
     <script src="app/services/sqliteService.js"></script>
-    <script src="app/employee-list/employee-list.component.js"></script>
     <!-- endinject -->
     <div ui-yield-to="modals"></div>
 </body>
