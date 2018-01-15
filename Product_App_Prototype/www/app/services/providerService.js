@@ -94,10 +94,10 @@
             var addList = emps.filter(function (e) { return e.Deleted == 0; });
             var deleteList = emps.filter(function (e) { return e.Deleted == 1; });
 
-            dataService.save(addList).$promise.then(
+            dataService.employee.save(addList).$promise.then(
                 function (saveResp, saveHttpResp) {
                     if (saveResp) {
-                        dataService.delete({ ids: deleteList.map(function (e) { return e.Id; }) }).$promise.then(
+                        dataService.employee.delete({ ids: deleteList.map(function (e) { return e.Id; }) }).$promise.then(
                             function (delResp, delHttpResp) {
                                 if (delResp) {
                                     $rootScope.$broadcast("sync_step2_completed");
@@ -133,7 +133,7 @@
         };
 
         var syncStep4 = function () {
-            dataService.query().$promise.then(
+            dataService.employee.query().$promise.then(
                 function (emps) {
                     if (emps.length == 0) {
                         $rootScope.$broadcast("sync_completed", emps);
@@ -179,12 +179,12 @@
         //var synData = function () {
         //    employeeProvider.get({ Sync: false }).then(
         //        function (employees) {
-        //            dataService.save(employees).$promise.then(
+        //            dataService.employee.save(employees).$promise.then(
         //                function (saveResp, httpResp) {
         //                    if (saveResp) {
         //                        employeeProvider.hardRemove().then(
         //                            function (res) {
-        //                                dataService.query().$promise.then(
+        //                                dataService.employee.query().$promise.then(
         //                                    function (emps) {
         //                                        employeeProvider.insert(employees).then(
         //                                            function () {

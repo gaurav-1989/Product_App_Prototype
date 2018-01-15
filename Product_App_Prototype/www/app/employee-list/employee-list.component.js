@@ -4,8 +4,8 @@
     angular.module('employee.list').
         component('employeeList', {
             templateUrl: "app/employee-list/employee-list.template.html",
-            controller: ['$routeParams', 'providerService', '$rootScope', '$window', 'Rollbar',
-                function employeeDetailsController($routeParams, providerService, $rootScope, $window, Rollbar) {
+            controller: ['$routeParams', 'providerService', '$rootScope', '$window', 'Rollbar', 'nativeService',
+                function employeeDetailsController($routeParams, providerService, $rootScope, $window, Rollbar, nativeService) {
                     var self = this;
                     self.employeelist = [];
 
@@ -38,6 +38,15 @@
                                 }
                             );
                         }
+                    };
+
+                    self.detail = function (index) {
+                        var selected = self.employeelist[index];
+                        $window.location.href = "#!/employee/" + selected.Id;
+                    };
+
+                    self.playVideo = function () {
+                        nativeService.playVideo('bitcoin.mp4');
                     };
                 }]
         })

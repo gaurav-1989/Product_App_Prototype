@@ -1,16 +1,27 @@
-.app-body {
-    margin: 50px 0;
-    position: relative;
+#back-button {
+    background-color: #eee;
 }
 
-.no-radius {
-    border-radius: 0;
+    #back-button md-icon {
+        color: blue;
+    }
+
+.md-menu-toolbar {
+    min-height: 50px;
 }
 
-#employee-search {
-    height: 44px;
+md-content, md-content > div:first-child, #employee-list {
+    height: 100%;
 }
 
-.navbar-brand {
-    padding: 10px;
-}
+    #employee-list md-input-container {
+        padding-top: 0;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        margin-top: 10px;
+    }
+
+    #employee-list md-virtual-repeat-container {
+        height: 100%;
+        width: 100%;
+    }

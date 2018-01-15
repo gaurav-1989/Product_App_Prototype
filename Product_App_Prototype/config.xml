@@ -98,4 +98,6 @@
   <engine name="browser" spec="^5.0.2" />
   <plugin name="cordova-sqlite-storage" spec="~2.1.4" />
   <plugin name="cordova-plugin-fcm" spec="~2.1.2" />
+  <plugin name="cordova-plugin-file" spec="~4.3.3" />
+  <plugin name="cordova-plugin-file-transfer" spec="~1.7.0" />
 </widget>

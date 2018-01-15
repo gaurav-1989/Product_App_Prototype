@@ -1,9 +1,9 @@
 ﻿(function () {
     "user strict";
 
-    angular.module("pap").service("nativeService", ["$rootScope", "$window", NativeService]);
+    angular.module("pap").service("nativeService", ["$rootScope", "$window", "$q", "config", NativeService]);
 
-    function NativeService($rootScope, $window) {
+    function NativeService($rootScope, $window, $q, config) {
         var _this = this;
 
         var pauseCallback = function () {
@@ -50,6 +50,24 @@
             }, 5000);
         };
 
+        var download = function (fileEntry, uri, deferred) {
+            var fileTransfer = new FileTransfer();
+            var fileURL = fileEntry.toURL();
+
+            fileTransfer.download(
+                uri,
+                fileURL,
+                function (entry) {
+                    if (deferred)
+                        deferred.resolve(entry);
+                },
+                function (error) {
+                    //error downloading file
+                    deferred.reject(error);
+                },
+                null);
+        }
+
         _this.initListners = function () {
             document.addEventListener("deviceready", deviceReadyCallback, false);
         };
@@ -61,6 +79,56 @@
         _this.isNetworkAvailable = function () {
             var networkState = navigator.connection.type;
             return networkState !== $window.Connection.NONE;
+        };
+
+        _this.isFileExist = function (path) {
+            var deferred = $q.defer();
+
+            window.resolveLocalFileSystemURL(path,
+                function (fileEntry) {
+                    deferred.resolve(true);
+                }, function () {
+                    deferred.resolve(false);
+                }
+            );
+
+            return deferred.promise;
+        };
+
+        _this.downloadFile = function (url, name, size) {
+            var deferred = $q.defer();
+
+            window.requestFileSystem(LocalFileSystem.PERSISTENT, size, function (fs) {
+                fs.root.getFile(name, { create: true, exclusive: false },
+                    function (fileEntry) {
+                        download(fileEntry, url, true);
+                    }, function (error) {
+                        //error creating file
+                        deferred.reject(error);
+                    });
+            }, function (error) {
+                //error loading file system
+                deferred.reject(error);
+            });
+
+            return deferred.promise;
+        };
+
+        var options = {
+            successCallback: function () {
+                alert("Video was closed without error.");
+            },
+            errorCallback: function (errMsg) {
+                alert("Error! " + errMsg);
+            },
+            orientation: 'landscape',
+            shouldAutoClose: true,  // true(default)/false
+            controls: true // true(default)/false. Used to hide controls on fullscreen
+        };
+
+        _this.playVideo = function (videoFileName) {
+            var url = config.videoApiUrl + videoFileName;
+            $window.plugins.streamingMedia.playVideo(url, options);
         };
     }
 })();

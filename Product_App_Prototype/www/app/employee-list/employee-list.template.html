@@ -1,36 +1,44 @@
-﻿<div class="scrollable">
-    <div class="input-group">
-        <input type="text" class="form-control no-radius" placeholder="Search for..." id="employee-search" ng-model="$ctrl.query">
-        <span class="input-group-btn">
-            <button ui-turn-on="addEmployee" class="btn btn-default no-radius" type="button"><i class="fa fa-2x fa-plus text-success"></i></button>
-        </span>
+﻿<div layout="column" layout-padding id="employee-list">
+    <div layout="row">
+        <md-input-container md-no-float flex="100">
+            <md-icon md-font-icon="fa fa-search"></md-icon>
+            <input ng-model="$ctrl.query" type="text" placeholder="Search for...">
+        </md-input-container>
+        <md-button class="md-icon-button">
+            <md-icon md-font-icon="fa fa-plus fa-2x" class="text-primary" ng-click="$root.openAddEmpDg($event)"></md-icon>
+        </md-button>
     </div>
-    <div class="scrollable-content">
-        <ul class="list-group">
-            <li ng-repeat="item in $ctrl.employeelist | filter: $ctrl.query" class="list-group-item section">
-                <h3>
-                    <a href="#!/employee/{{item.Id}}">
-                        {{ item.FirstName + " " + item.LastName }}
-                    </a>
-                </h3>
-                <span>{{ item.Email }}</span><br />
-                <small>{{ item.DOB }}</small>
-                <ul class="list-inline pull-right">
-                    <!--<li>
-                        <a href="">
-                            <i class="fa fa-2x fa-info-circle text-info"></i>
-                        </a>
-                    </li>-->
-                    <li>
-                        <a ng-click="$ctrl.delete($index)">
-                            <i class="fa fa-2x fa-trash text-danger"></i>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </div>
+    <md-virtual-repeat-container>
+        <div ng-repeat="item in $ctrl.employeelist | filter: $ctrl.query" class="list-group-item">
+            <md-card md-theme="dark-blue" md-theme-watch>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">
+                            {{ item.FirstName + " " + item.LastName }}
+                        </span>
+                        <span class="md-subhead">
+                            {{ item.Email }}
+                        </span>
+                        <span class="md-subhead">
+                            {{ item.DOB }}
+                        </span>
+                    </md-card-title-text>
+                    <md-card-title-media>
+                        <div class="md-media-md card-media"></div>
+                    </md-card-title-media>
+                </md-card-title>
+                <md-card-actions layout="row" layout-align="end center">
+                    <md-button class="md-icon-button">
+                        <md-icon md-font-icon="fa fa-info fa-2x" ng-click="$ctrl.detail($index)"></md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button">
+                        <md-icon md-font-icon="fa fa-vimeo fa-2x" ng-click="$ctrl.playVideo()"></md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button">
+                        <md-icon md-font-icon="fa fa-2x fa-trash text-danger" ng-click="$ctrl.delete($index)"></md-icon>
+                    </md-button>
+                </md-card-actions>
+            </md-card>
+        </div>
+    </md-virtual-repeat-container>
 </div>
-<add-employee></add-employee>
-
-

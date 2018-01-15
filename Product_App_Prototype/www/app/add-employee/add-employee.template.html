@@ -1,57 +1,43 @@
-<div ui-content-for="modals">
-    <div class="modal modal-overlay" ui-if="addEmployee" ui-shared-state="addEmployee">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button class="close" ui-turn-off="addEmployee">&times;</button>
-                    <h4 class="modal-title">Employee Form</h4>
-                </div>
-                <div class="modal-body">
-                    <form role="form" ng-submit='$ctrl.add()'>
-                        <fieldset>
-                            <div class="form-group">
-                                <label>FirstName</label>
-                                <input type="text"
-                                       ng-model="$ctrl.employee.FirstName"
-                                       class="form-control"
-                                       placeholder="FirstName" required />
-                            </div>
-                            <div class="form-group">
-                                <label>LastName</label>
-                                <input type="text"
-                                       ng-model="$ctrl.employee.LastName"
-                                       class="form-control"
-                                       placeholder="LastName" required />
-                            </div>
-                            <div class="form-group">
-                                <label>DOB</label>
-                                <input type="date"
-                                       ng-model="$ctrl.employee.DOB"
-                                       class="form-control" required />
-                            </div>
-
-                            <div class="form-group has-success has-feedback">
-                                <label>Email</label>
-                                <input type="email"
-                                       ng-model="$ctrl.employee.Email"
-                                       class="form-control"
-                                       placeholder="Enter email" required />
-                            </div>
-                        </fieldset>
-                        <hr>
-                        <div class="pull-right">
-                            <ul class="list-inline">
-                                <li>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </li>
-                                <li>
-                                    <button type="button" class="btn btn-primary" ng-click="$ctrl.reset()">Reset</button>
-                                </li>
-                            </ul>
-                        </div>
-                    </form>
-                </div>
+<md-toolbar>
+    <div class="md-toolbar-tools">
+        <h2>Add Employee</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="$ctrl.close()">
+            <md-icon md-font-icon="fa fa-close fa-2x"></md-icon>
+        </md-button>
+    </div>
+</md-toolbar>
+<form>
+    <md-dialog-content>
+        <div class="md-dialog-content">
+            <md-input-container class="md-block">
+                <label>First Name</label>
+                <input ng-model="$ctrl.employee.FirstName" />
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Last Name</label>
+                <input ng-model="$ctrl.employee.LastName" />
+            </md-input-container>
+            <div layout-gt-xs="row">
+                <md-input-container class="md-block" flex-gt-xs>
+                    <label>Email</label>
+                    <input ng-model="$ctrl.employee.Email" />
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-xs>
+                    <label>Date Of Birth</label>
+                    <md-datepicker ng-model="$ctrl.employee.DOB"></md-datepicker>
+                </md-input-container>
             </div>
         </div>
-    </div>
-</div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+        <span flex></span>
+        <md-button class="md-raised" type="button" ng-click="$ctrl.add($event)">
+            Submit
+        </md-button>
+        <md-button class="md-raised" type="button" ng-click="$ctrl.reset()">
+            Reset
+        </md-button>
+    </md-dialog-actions>
+</form>
+

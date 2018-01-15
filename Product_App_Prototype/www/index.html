@@ -13,33 +13,42 @@
     <link rel="stylesheet" href="assets/css/index.css">
     <!-- endinject -->
     <link rel="stylesheet" href="scripts/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="scripts/angular-material/angular-material.min.css" />
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="scripts/angular/angular.min.js"></script>
+    <script type="text/javascript" src="scripts/angular-animate/angular-animate.min.js"></script>
+    <script type="text/javascript" src="scripts/angular-aria/angular-aria.min.js"></script>
+    <script type="text/javascript" src="scripts/angular-messages/angular-messages.min.js"></script>
+    <script type="text/javascript" src="scripts/angular-material/angular-material.min.js"></script>
     <script type="text/javascript" src="scripts/angular-route/angular-route.js"></script>
     <script type="text/javascript" src="scripts/angular-resource/angular-resource.min.js"></script>
-    <script type="text/javascript" src="scripts/mobile-angular-ui/dist/js/mobile-angular-ui.min.js"></script>
     <script type="text/javascript" src="scripts/angular-uuids/angular-uuid.js"></script>
-    <script src="scripts/ng-rollbar/ng-rollbar.min.js"></script>
+    <script type="text/javascript" src="scripts/ng-rollbar/ng-rollbar.min.js"></script>
 </head>
 <body ng-app="pap">
     <div class="app">
-        <div class="navbar navbar-app navbar-fixed-top">
-            <div class="navbar-brand">
-                <a href="" ng-show="location.path() !== '/employees'" ng-click="window.history.back()">
-                    <i class="fa fa-arrow-circle-left fa-2x"></i>
-                </a>
-                <i class="fa fa-2x fa-facebook-official"></i>
-                Demo app
+        <md-toolbar class="md-menu-toolbar">
+            <div layout="row">
+                <md-toolbar-filler id="back-button" layout layout-align="center center" ng-show="location.path() !== '/employees'" ng-click="window.history.back()">
+                    <md-button class="md-icon-button">
+                        <md-icon md-font-icon="fa fa-chevron-left fa-3x"></md-icon>
+                    </md-button>
+                </md-toolbar-filler>
+                <md-toolbar-filler layout layout-align="center center">
+                    <md-icon md-font-icon="fa fa-2x fa-facebook-official"></md-icon>
+                </md-toolbar-filler>
+                <div>
+                    <h2 class="md-toolbar-tools">
+                        <md-truncate flex>
+                            Demo App
+                        </md-truncate>
+                    </h2>
+                </div>
             </div>
-        </div>
-        <div class="app-body">
+        </md-toolbar>
+        <md-content>
             <div ng-view></div>
-        </div>
-        <!--<div class="navbar navbar-app navbar-fixed-bottom">
-            <div class="navbar-text text-center">
-                Copyright @2017
-            </div>
-        </div>-->
+        </md-content>
     </div>
     <!-- inject:js -->
     <script src="app/add-employee/add-employee.module.js"></script>
@@ -60,6 +69,6 @@
     <script src="app/services/providerService.js"></script>
     <script src="app/services/sqliteService.js"></script>
     <!-- endinject -->
-    <div ui-yield-to="modals"></div>
+    <!--<div ui-yield-to="modals"></div>-->
 </body>
 </html>
