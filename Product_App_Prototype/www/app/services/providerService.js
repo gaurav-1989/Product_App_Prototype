@@ -7,9 +7,15 @@
     function ProviderService($rootScope, $filter, employeeProvider, dataService, $q, Rollbar) {
         var _this = this;
         var _deferred = $q.defer();
+        var synced = false;
 
-        $rootScope.$onMany(["device_online_event"], function () {
-            syncStep1();
+        $rootScope.$onMany(["device_ready_event", "device_online_event"], function () {
+            alert("ok");
+            debugger;
+            if (!synced) {
+                syncStep1();
+                synced = true;
+            }
         });
 
         _this.getEmployees = function (filter) {

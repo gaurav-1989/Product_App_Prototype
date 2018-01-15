@@ -100,4 +100,5 @@
   <plugin name="cordova-plugin-fcm" spec="~2.1.2" />
   <plugin name="cordova-plugin-file" spec="~4.3.3" />
   <plugin name="cordova-plugin-file-transfer" spec="~1.7.0" />
+  <plugin name="cordova-plugin-streaming-media-xtreme" spec="~2.3.1" />
 </widget>

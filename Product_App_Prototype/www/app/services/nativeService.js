@@ -116,19 +116,24 @@
 
         var options = {
             successCallback: function () {
-                alert("Video was closed without error.");
+                //alert("Video was closed without error event.");
             },
             errorCallback: function (errMsg) {
                 alert("Error! " + errMsg);
             },
             orientation: 'landscape',
-            shouldAutoClose: true,  // true(default)/false
-            controls: true // true(default)/false. Used to hide controls on fullscreen
+            shouldAutoClose: true,
+            controls: true
         };
 
         _this.playVideo = function (videoFileName) {
-            var url = config.videoApiUrl + videoFileName;
-            $window.plugins.streamingMedia.playVideo(url, options);
+            try {
+                var url = config.videoApiUrl + "?videoFileName=" + videoFileName;
+                window.plugins.streamingMedia.playVideo(url, options);
+            }
+            catch (error) {
+                alert(error);
+            }
         };
     }
 })();

@@ -46,7 +46,7 @@
                     };
 
                     self.playVideo = function () {
-                        nativeService.playVideo('bitcoin.mp4');
+                        nativeService.playVideo('bitcoin_1.mp4');
                     };
                 }]
         })
