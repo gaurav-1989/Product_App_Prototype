@@ -41,13 +41,15 @@
                     };
 
                     self.detail = function (index) {
-                        var selected = self.employeelist[index];
+                      nativeService.imageLoad("win-ten_block2-icon3.svg");
+                      var selected = self.employeelist[index];
                         $window.location.href = "#!/employee/" + selected.Id;
                     };
 
                     self.playVideo = function () {
                         nativeService.playVideo('bitcoin_1.mp4');
                     };
+                                       
                 }]
         })
 })();

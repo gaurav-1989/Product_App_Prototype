@@ -97,8 +97,7 @@
 
         _this.downloadFile = function (url, name, size) {
             var deferred = $q.defer();
-
-            window.requestFileSystem(LocalFileSystem.PERSISTENT, size, function (fs) {
+                        window.requestFileSystem(LocalFileSystem.PERSISTENT, size, function (fs) {
                 fs.root.getFile(name, { create: true, exclusive: false },
                     function (fileEntry) {
                         download(fileEntry, url, true);
@@ -135,5 +134,41 @@
                 alert(error);
             }
         };
+
+//     
+
+        _this.imageLoad = function (imageFileName) {
+         debugger
+            var url = 'https://static.ivanti.com/sites/marketing/media/images/solutions/win-ten/'+imageFileName;
+            var filePath = cordova.file.dataDirectory + '/'+imageFileName;
+            var fileTransfer = new FileTransfer();
+            var uri = encodeURI(url);
+           
+            window.resolveLocalFileSystemURL(filePath,
+                function (fileEntry) {
+                  document.getElementById("downloadedimage").src = filePath;
+                }, function () {
+                    fileTransfer.download(
+                        uri,
+                        filePath,
+                        function (entry) {
+                            var path = entry.fullPath + '/' + imageFileName;
+                            ocument.getElementById("downloadedimage").src = entry.toURL();
+                        },
+                        function (error) {
+                            console.log("download error source " + error.source);
+                            console.log("download error target " + error.target);
+                            console.log("upload error code" + error.code);
+                        },
+                        false,
+                        {
+                            headers: {
+                            }
+                        }
+                    );
+                })                 
+
+            
+        }
     }
 })();
