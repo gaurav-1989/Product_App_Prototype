@@ -25,3 +25,15 @@ md-content, md-content > div:first-child, #employee-list {
         height: 100%;
         width: 100%;
     }
+md-toolbar.md-default-theme.md-menu-toolbar md-toolbar-filler, md-toolbar.md-menu-toolbar md-toolbar-filler {
+    background-color: gray !important;
+    color: rgba(255,255,255,0.87);
+    border-radius: 50% !important;
+}
+
+md-toolbar md-toolbar-filler {
+    width:45px;
+}
+h2 {
+    margin:10px !important;
+}

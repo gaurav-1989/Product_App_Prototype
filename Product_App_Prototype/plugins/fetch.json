@@ -66,7 +66,7 @@
     "cordova-plugin-streaming-media-xtreme": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-streaming-media-xtreme"
+            "id": "cordova-plugin-streaming-media-xtreme@~2.3.1"
         },
         "is_top_level": true,
         "variables": {}

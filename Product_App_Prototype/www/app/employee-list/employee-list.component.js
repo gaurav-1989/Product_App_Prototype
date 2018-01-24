@@ -27,7 +27,7 @@
                     self.delete = function (index) {
                         var selected = self.employeelist[index];
 
-                        var confirmation = $window.confirm("Are you sure?")
+                        var confirmation = $window.confirm("Are you sure?");
                         if (confirmation) {
                             providerService.removeEmployee({ Id: selected.Id }).then(
                                 function () {
@@ -49,5 +49,5 @@
                         nativeService.playVideo('bitcoin_1.mp4');
                     };
                 }]
-        })
+        });
 })();

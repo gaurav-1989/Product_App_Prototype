@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
@@ -31,19 +31,20 @@
             <div layout="row">
                 <md-toolbar-filler id="back-button" layout layout-align="center center" ng-show="location.path() !== '/employees'" ng-click="window.history.back()">
                     <md-button class="md-icon-button">
-                        <md-icon md-font-icon="fa fa-chevron-left fa-3x"></md-icon>
+                        <md-icon md-font-icon="fa fa-chevron-left fa-lg"></md-icon>
                     </md-button>
                 </md-toolbar-filler>
                 <md-toolbar-filler layout layout-align="center center">
-                    <md-icon md-font-icon="fa fa-2x fa-facebook-official"></md-icon>
+                    <md-icon md-font-icon="fa fa-google-wallet"></md-icon>
                 </md-toolbar-filler>
-                <div>
+                <h2>Demo App</h2>
+                <!--<div>
                     <h2 class="md-toolbar-tools">
                         <md-truncate flex>
                             Demo App
                         </md-truncate>
                     </h2>
-                </div>
+                </div>-->
             </div>
         </md-toolbar>
         <md-content>
@@ -60,6 +61,7 @@
     <script src="app/app.route.js"></script>
     <script src="app/app.run.js"></script>
     <script src="app/platformOverrides.js"></script>
+    <script src="app/add-employee/add-employee.component.js"></script>
     <script src="app/employee-details/employee-details.component.js"></script>
     <script src="app/employee-list/employee-list.component.js"></script>
     <script src="app/providers/employeeProvider.js"></script>
@@ -67,7 +69,6 @@
     <script src="app/services/nativeService.js"></script>
     <script src="app/services/providerService.js"></script>
     <script src="app/services/sqliteService.js"></script>
-    <script src="app/add-employee/add-employee.component.js"></script>
     <!-- endinject -->
     <!--<div ui-yield-to="modals"></div>-->
 </body>

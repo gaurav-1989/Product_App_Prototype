@@ -5,7 +5,7 @@
             <input ng-model="$ctrl.query" type="text" placeholder="Search for...">
         </md-input-container>
         <md-button class="md-icon-button">
-            <md-icon md-font-icon="fa fa-plus fa-2x" class="text-primary" ng-click="$root.openAddEmpDg($event)"></md-icon>
+            <md-icon md-font-icon="fa fa-plus fa-lg" class="text-primary" ng-click="$root.openAddEmpDg($event)"></md-icon>
         </md-button>
     </div>
     <md-virtual-repeat-container>
@@ -29,13 +29,13 @@
                 </md-card-title>
                 <md-card-actions layout="row" layout-align="end center">
                     <md-button class="md-icon-button">
-                        <md-icon md-font-icon="fa fa-info fa-2x" ng-click="$ctrl.detail($index)"></md-icon>
+                        <md-icon md-font-icon="fa fa-info fa-lg" ng-click="$ctrl.detail($index)"></md-icon>
                     </md-button>
                     <md-button class="md-icon-button">
-                        <md-icon md-font-icon="fa fa-vimeo fa-2x" ng-click="$ctrl.playVideo()"></md-icon>
+                        <md-icon md-font-icon="fa fa-vimeo fa-lg" ng-click="$ctrl.playVideo()"></md-icon>
                     </md-button>
                     <md-button class="md-icon-button">
-                        <md-icon md-font-icon="fa fa-2x fa-trash text-danger" ng-click="$ctrl.delete($index)"></md-icon>
+                        <md-icon md-font-icon="fa fa-lg fa-trash text-danger" ng-click="$ctrl.delete($index)"></md-icon>
                     </md-button>
                 </md-card-actions>
             </md-card>
