@@ -11,7 +11,7 @@
 
         $rootScope.$onMany(["device_ready_event", "device_online_event"], function () {
             alert("ok");
-            debugger;
+           // debugger;
             if (!synced) {
                 syncStep1();
                 synced = true;
